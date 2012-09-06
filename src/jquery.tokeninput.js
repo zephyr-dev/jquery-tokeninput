@@ -29,6 +29,7 @@ var DEFAULT_SETTINGS = {
     noResultsText: "No results",
     searchingText: "Searching...",
     deleteText: "&times;",
+    placeholder: null,
     animateDropdown: true,
     theme: null,
     zindex: 999,
@@ -351,6 +352,10 @@ $.TokenList = function (input, url_or_data, settings) {
             }
         });
 
+    if (settings.placeholder) {
+      input_box.attr("placeholder", settings.placeholder)
+    }
+
     // Keep a reference to the original input box
     var hidden_input = $(input)
                            .hide()
@@ -490,6 +495,9 @@ $.TokenList = function (input, url_or_data, settings) {
         toggleDisabled(disable);
     }
 
+    // Resize input to maximum width so the placeholder can be seen
+    resize_input();
+
     //
     // Private functions
     //
@@ -524,11 +532,7 @@ $.TokenList = function (input, url_or_data, settings) {
     }
 
     function resize_input() {
-        if(input_val === (input_val = input_box.val())) {return;}
-
-        // Enter new content into resizer and resize input accordingly
-        input_resizer.html(_escapeHTML(input_val));
-        input_box.width(input_resizer.width() + 30);
+      input_box.width("auto");
     }
 
     function is_printable_character(keycode) {
@@ -624,6 +628,9 @@ $.TokenList = function (input, url_or_data, settings) {
                 return;
             }
         }
+
+        // Squeeze input_box so we force no unnecessary line break
+        input_box.width(0);
 
         // Insert the new tokens
         if($(input).data("settings").tokenLimit == null || token_count < $(input).data("settings").tokenLimit) {

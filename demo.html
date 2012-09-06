@@ -48,8 +48,10 @@
                 {id: 37, name: "Visual Basic"},
                 {id: 41, name: "C"},
                 {id: 43, name: "C++"},
-                {id: 47, name: "Java"}
-            ]);
+                {id: 47, name: "Java"}],
+                {
+                 placeholder: 'Select your favourite programming languages'
+                });
         });
         </script>
     </div>
@@ -62,7 +64,8 @@
         <script type="text/javascript">
         $(document).ready(function() {
             $("#demo-input-facebook-theme").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                theme: "facebook"
+              theme: "facebook",
+              plceholder: 'Select a TV Show'
             });
         });
         </script>
@@ -235,9 +238,9 @@
 
     <h2 id="plugin-methods">Using the add, remove, clear and toggleDisabled Methods</h2>
     <div>
-      <a href="#" id="plugin-methods-add">Add Token</a> | 
-      <a href="#" id="plugin-methods-remove">Remove Token</a> | 
-      <a href="#" id="plugin-methods-clear">Clear Tokens</a> | 
+      <a href="#" id="plugin-methods-add">Add Token</a> |
+      <a href="#" id="plugin-methods-remove">Remove Token</a> |
+      <a href="#" id="plugin-methods-clear">Clear Tokens</a> |
       <a href="#" id="plugin-methods-toggle-disable">Toggle Disabled</a><br />
         <input type="text" id="demo-input-plugin-methods" name="blah" />
         <input type="button" value="Submit" />
@@ -272,7 +275,7 @@
         });
         </script>
     </div>
-    
+
     <h2>Local Data Search with custom propertyToSearch, resultsFormatter and tokenFormatter</h2>
     <div>
         <input type="text" id="demo-input-local-custom-formatters" name="blah" />
@@ -674,7 +677,7 @@
         });
         </script>
     </div>
-    
+
     <h2>Start disabled</h2>
     <div>
         <input type="text" id="demo-input-disabled" name="blah" />
